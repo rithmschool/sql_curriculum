@@ -2,7 +2,7 @@
 
 ### Installing Postgres
 
-```
+```sh
 brew install postgres --no-ossp-uuid
 brew pin postgres
 
