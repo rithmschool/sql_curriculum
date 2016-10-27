@@ -54,6 +54,8 @@ SELECT * FROM players WHERE sport = 'basketball';
 
 ### IN
 
+To find multiple records we can search for multiple terms using `IN`
+
 ```sql
 SELECT * FROM players WHERE jersey_number IN (0,1);
 /*
@@ -66,6 +68,8 @@ SELECT * FROM players WHERE jersey_number IN (0,1);
 ```
 
 ### NOT IN
+
+We can do the exact inverse of `IN` using `NOT IN`
 
 ```sql
 SELECT * FROM players WHERE jersey_number IN (0,1);
@@ -87,6 +91,8 @@ SELECT * FROM players WHERE jersey_number IN (0,1);
 
 ### BETWEEN
 
+To search for a field in a range, we can use `BETWEEN x AND y`.
+
 ```sql
 SELECT * FROM players WHERE jersey_number BETWEEN 0 AND 25;
 /*
@@ -105,6 +111,8 @@ SELECT * FROM players WHERE jersey_number BETWEEN 0 AND 25;
 
 ### Arithmetic
 
+SQL supports all kinds of arithmetic operators like `<`, `<=`, `>=`, `>` and `!=`.
+
 ```sql
 SELECT * FROM players WHERE jersey_number > 25;
 /*
@@ -120,6 +128,8 @@ SELECT * FROM players WHERE jersey_number > 25;
 
 ### AND
 
+To check that multiple conditions are satisfied we can use the `AND` command.
+
 ```sql
 SELECT * FROM players WHERE jersey_number > 25 and id < 6;
 /*
@@ -131,6 +141,8 @@ SELECT * FROM players WHERE jersey_number > 25 and id < 6;
 ```
 
 ### OR
+
+To check that at least one condition is satisfied we can use the `OR` command.
 
 ```sql
 SELECT * FROM players WHERE jersey_number > 25 or id < 6;
@@ -151,7 +163,10 @@ SELECT * FROM players WHERE jersey_number > 25 or id < 6;
 
 ### LIKE
 
+To search for a term we can use the `LIKE` command. The `%` denotes any possible character. `LIKE` **is** case sensitive.
+
 ```sql
+--find all players whose name starts with a capital S--
 SELECT * FROM players WHERE name LIKE 'S%';
 /*
  id |  name   |   sport    |  team  | jersey_number | is_rookie 
@@ -163,6 +178,8 @@ SELECT * FROM players WHERE name LIKE 'S%';
 ```
 
 ### ILIKE
+
+`ILIKE` is similar to the `LIKE` command, but it is **case insensitive**.
 
 ```sql
 SELECT * FROM players WHERE name ILIKE 's%';
@@ -176,6 +193,8 @@ SELECT * FROM players WHERE name ILIKE 's%';
 ```
 
 ### ORDER BY
+
+If we want to order results in ascending or descending order we use the `ORDER BY ASC_or_DESC` command. 
 
 ```sql
 SELECT * FROM players ORDER BY jersey_number DESC;
@@ -195,4 +214,13 @@ SELECT * FROM players ORDER BY jersey_number DESC;
  10 | Gilbert | basketball | warriors |             0 | f
 */
 ```
+
+### Changing Data Types
+
+Commonly in SQL, we will want to output a certain data type for an operation, to convert one data type to another we can use the `CAST` command or use `::data_type`
+
+```sql
+SELECT round((SUM(id) / COUNT(jersey_number))::numeric ,2)::float 
+```
+
 

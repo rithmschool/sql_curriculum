@@ -14,11 +14,11 @@ A common example of a 1:1 is a person and a social security number.
 
 ### One to Many
 
-Some common examples 
+Some common examples of 1:M
 
 ### Many to Many
 
-A common example of a 1:M
+A common example of a M:M
 
 ### Joins
 

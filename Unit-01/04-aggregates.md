@@ -80,6 +80,8 @@ SELECT product, COUNT(product) FROM sales GROUP BY product;
 
 ### HAVING
 
+When using a `GROUP BY` clause, we can not attach a `WHERE` if we want to be more selective. Instead we use the `HAVING` keyword to place condition on our `GROUP BY` command.
+
 ```sql
 SELECT product, COUNT(product) FROM sales GROUP BY product HAVING COUNT(product) > 2;
 ```

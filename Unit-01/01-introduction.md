@@ -79,6 +79,13 @@ If you would like to remove a database, we can do this in 2 ways:
 1. In `psql` type `DROP DATABASE name_of_db;` - make sure you are not connected to that database or the command will not work
 2. In the `terminal` type `drop name_of_db`
 
+### SQL Syntax
+
+The most important thing with SQL syntax is to end your statements with a `;`. SQL will not understand when you have finished your statement unless it sees that. You also MUST make sure to put all text in **single** quotes not double quotes. SQL views double quotes as a name of a table and single quotes as a string.
+
+
+
+
 
 
 

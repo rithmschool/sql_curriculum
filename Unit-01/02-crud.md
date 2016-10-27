@@ -57,19 +57,45 @@ ALTER TABLE users ALTER COLUMN favorite_number SET DATA TYPE INTEGER;
 
 ### Creating and Modifying data (DML)
 
+When we perform CRUD operations on our rows (not columns, tables or databases) we are using DML or Data Manipulation Language. 
+
+| CRUD  | SQL  |
+|---|---|
+| Create  | INSERT  |
+| Read  | SELECT  |
+| Update  |  UPDATE  |
+| Delete  |  DELETE  |
+
+Let's get started with reading data from our tables using `SELECT`.
+
 ### SELECT
 
 ```sql
+--to select all rows and columns--
 SELECT * FROM users;
+
+--to select specific columns--
+SELECT id, first_name FROM users;
+
+--to select specific columns and rows--
+SELECT id, first_name FROM users WHERE id=1;
 ```
 
 ### INSERT
 
+There are two different ways of inserting or adding data to a table - let's take a look at both
+
 ```sql
+--start with the INSERT INTO commands and then specify a table(column1, column2, ...) and VALUES for each column.
+INSERT INTO users(first_name, last_name) VALUES ('Elie', 'Schoppik');
+
+--if you want to add sequentially to columns you do not need to specify the first portion-- 
 INSERT INTO users(first_name, last_name) VALUES ('Elie', 'Schoppik');
 ```
 
 ### UPDATE
+
+To update a row or multiple rows we use the `DELETE UPDATE` command.
 
 ```sql
 UPDATE users SET first_name = 'Elie' -- will update all users
@@ -77,6 +103,8 @@ UPDATE users SET first_name = 'Elie' WHERE id=1 -- will update all users
 ```
 
 ### DELETE
+
+To delete a row or multiple rows we use the `DELETE FROM` command.
 
 ```sql
 DELETE FROM users; -- will delete all users
