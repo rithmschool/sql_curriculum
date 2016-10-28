@@ -25,6 +25,19 @@ CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT);
 \d+ users
 ```
 
+### Data Types in Postgres
+
+**SERIAL** - auto incrementing integer, perfect for IDs
+**TEXT** - pieces of text (equally as memory efficient as VARCHAR)
+**VARCHAR** - a variable number of characters
+**CHAR** - a fixed number of characters
+**BOOLEAN** - a boolean
+**INTEGER** - an integer
+**REAL** - a floating point number
+**ARRAY** - an array
+
+So what is `PRIMARY KEY`? A primary key enforces the constraint of "uniqueness". If we made a user with an id of `1` and then tried to add another user with an id of `1` explicitly, SQL will not allow us to do that, because of our primary key. Placing primary keys on columns like `id` are commonplace. 
+
 ### Adding a column in a table
 
 ```sql

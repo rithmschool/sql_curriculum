@@ -8,6 +8,8 @@ By the end of this chapter, you should be able to:
 - Read data from associated tables using inner, outer and cross joins
 - Understand and use set operations like `UNION`, `UNION ALL`, `INTERSECT` and `EXCEPT`
 
+### Foreign Key
+
 ### One to One
 
 A common example of a 1:1 is a person and a social security number. 
