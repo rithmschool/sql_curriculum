@@ -1,12 +1,12 @@
-# Joins and Associations
+# SQL Associations
 
 ### Objectives:
 
 By the end of this chapter, you should be able to:
 
-- Compare and contrast common associations between tables
-- Read data from associated tables using inner, outer and cross joins
-- Understand and use set operations like `UNION`, `UNION ALL`, `INTERSECT` and `EXCEPT`
+- Define __foreign key__
+- Create a one to many (1:M) association in SQL
+- Create a many to many association in SQL
 
 ### Foreign Key
 
