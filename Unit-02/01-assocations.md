@@ -64,39 +64,100 @@ ERROR:  insert or update on table "interests" violates
         foreign key constraint
 ```
 
-
-### One to One
-
-A common example of a 1:1 is a person and a social security number. 
-
 ### One to Many
 
-Some common examples of 1:M
+In our foreign key example above, we actually setup a one to many (1:M) association. The way we structured the database implies that one person can have many interests, and that each interest belongs to exactly one person.
+
+One to many associations are extremely common in database and they association usually implies that one row from a table owns or has rows from another table.
+
+For example:
+
+```sql
+CREATE TABLE users (id SERIAL PRIMARY KEY,
+                   email TEXT,
+                   password TEXT);
+
+CREATE TABLE photos (id SERIAL PRIMARY KEY,
+                     url TEXT,
+                     user_id INTEGER REFERENCES people);
+```
+
+In the table above, each user in the users table, can have many photos and one photo from the photos table belongs to exactly one user based on the value of `user_id`.
+
+Another example:
+
+```sql
+CREATE TABLE states (id SERIAL PRIMARY KEY,
+                    name TEXT);
+
+CREATE TABLE cities (id SERIAL PRIMARY KEY,
+                     name TEXT,
+                     state_id INTEGER REFERENCES states);
+```
+
+In this example, a state has many cities and a city belongs to a state. So this is a one to many relationship as well.
+
 
 ### Many to Many
 
-A common example of a M:M
+Often your database needs to model a more complex association in which an item from one table can associate to many rows in another table and vice versa.  This is a many to many (M:M) relationship.  
 
-### Joins
+Some examples:
 
-Let's start with some sample data
+* A database with orders and products.  A product can have many orders its associated with and an order has many products
+* School courses and students.  A student can be enrolled in many classes and a class has many students.
+* Recipes and ingredients.  A recipe can have many ingredients and ingredients can be used in many recipes.
+
+__Many to Many in SQL__
+
+Let's create an association between students and courses in sql.  In order to make this association work, we will need a third table that maps a foreign key from courses to a foreign key from students.  We will call that third table enrollments in this case:
 
 ```sql
-CREATE TABLE 
+CREATE TABLE students (id SERIAL PRIMARY KEY,
+                       name TEXT);
+
+CREATE TABLE courses (id SERIAL PRIMARY KEY,
+                      name TEXT,
+                      teacher_name TEXT);
+
+CREATE TABLE enrollments (id SERIAL PRIMARY KEY,
+                      	   student_id INTEGER REFERENCES students,
+                      	   course_id INTEGER REFERENCES courses);
+
 ```
 
-### Inner Join
+In students and courses example, one student can be associated with a course by a single row in the `enrollments` table. If that student is in another course, there will be another row in the `enrollments` table that associates the same student id to another course id.
 
-### Outer Join
+Let's look at some sample data for the example:
 
-### Cross Join
+__students__
 
-### Self Join
+|id|first_name|last_name
+| ----|---|---|
+| 1 | Billy Jean| King|
+| 2 | Dawn | Riley |
+| 3 | Grace | Hopper |
 
-### Union
+__courses__
 
-### Union All
+|id|name|teacher_name|
+| ----|---|---|
+| 1 | Physics| Mrs. Skiles |
+| 2 | P.E. | Mr. Carty|
+| 3 | Biology | Mrs. Waldorf|
+| 4 | Computer Science | Miss. Flurry |
 
-### Intersect
+__enrollments__
 
-### Except
+|id|student_id|course_id|
+| ----|:---:|:---:|
+| 1 | 1 | 2|
+| 2 | 2 | 2|
+| 3 | 3 | 4|
+| 4 | 3 | 1|
+| 5 | 3 | 3|
+| 6 | 1 | 3|
+
+So based on this data, Billy Jean King is taking P.E. and Biology, Dawn Riley is only taking P.E. and Grace Hopper is taking Computer Science, Biology, and Physics.
+
+The same foreign key constraints apply to the enrollments table.  If a `student_id` does not exist in the `students` table, then the data will not be allowed to be inserted into the `enrollments` table.  Likewise, if a `course_id` does not exist in the `courses` table, the data will not be allowed to be inserted into the `enrollments` table.
