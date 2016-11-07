@@ -10,31 +10,45 @@ By the end of this chapter, you should be able to:
 
 ### DDL vs DML
 
-When working with SQL, it's essential to compare and contrast two terms, DDL and DML.
+When working with SQL, the commands you will be using fall into two major categories:
 
 **DDL** - Data Definition Language - this refers to the SQL syntax and commands around creating, modifying and deleting **tables**, **columns** and **databases**.
 
-**DDL** - Data Manipulation Language - this refers to the SQL syntax and commands around creating, reading, modifying and deleting **rows**.
+**DML** - Data Manipulation Language - this refers to the SQL syntax and commands around creating, reading, modifying and deleting **rows**.
 
 Let's first focus on DDL.
 
 ### Creating a table (DDL)
 
+Open up postgres by typing `psql` in your terminal.  Next enter the following:
+
 ```sql
-CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT);
+CREATE TABLE users (id SERIAL PRIMARY KEY,
+                    first_name TEXT,
+                    last_name TEXT);
 \d+ users
 ```
 
+In the example above, `users` is the name of the table we are creating. The `id`, `first_name`, and `last_name` are all columns in the `users` table.  `SERIAL` and `TEXT` are examples of data types, which we will talk about in detail next. `PRIMARY KEY` is a constraint placed on the column.
+
+So this example creates a `users` table with 3 columns: `id`, `first_name`, `last_name`.
+
 ### Data Types in Postgres
 
-**SERIAL** - auto incrementing integer, perfect for IDs
-**TEXT** - pieces of text (equally as memory efficient as VARCHAR)
-**VARCHAR** - a variable number of characters
-**CHAR** - a fixed number of characters
-**BOOLEAN** - a boolean
-**INTEGER** - an integer
-**REAL** - a floating point number
-**ARRAY** - an array
+In relational databases like postgres, you must specify the type of data that you plan to store in a column.  Here are the types in postgres:
+
+* **SERIAL** - auto incrementing integer, perfect for IDs
+* **TEXT** - pieces of text (equally as space efficient as VARCHAR)
+* **VARCHAR** - a variable number of characters
+* **CHAR** - a fixed number of characters
+* **BOOLEAN** - a boolean
+* **INTEGER** - an integer
+* **REAL** - a floating point number, e.g., 3.141593
+* **DECIMAL**, **NUMERIC** - floating point numbers that have user specified percision.
+* **MONEY** - floating point numbers use for money
+* **ARRAY** - an array (array types are rarely used)
+
+### Constraints
 
 So what is `PRIMARY KEY`? A primary key enforces the constraint of "uniqueness". If we made a user with an id of `1` and then tried to add another user with an id of `1` explicitly, SQL will not allow us to do that, because of our primary key. Placing primary keys on columns like `id` are commonplace. 
 

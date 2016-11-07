@@ -8,7 +8,7 @@ By the end of this chapter, you should be able to:
 - Have Postgres installed on your machine
 - Use basic psql syntax to list essential information about tables and databases
 
-Welcome to the SQL curriculum! We will be learning how to use SQL to communicate with a database and store information permanently. Let's get started by learning a few essential definitions.
+Welcome to the SQL curriculum! We will be learning how to use SQL to communicate with a database and store information permanently.  Let's get started by learning a few essential definitions.
 
 ### Definitions
 
@@ -22,7 +22,7 @@ Welcome to the SQL curriculum! We will be learning how to use SQL to communicate
 
 **PostgreSQL** - PostgresQL or "postgres" is a relational database management system that is open source (free for everyone to use and contribute too!). Postgres powers some of the largest companies in the world.
 
-**schema** - the organization of data inside of a database. The database schema represents the collection and association of tables in a database.
+**Schema** - the organization of data inside of a database. The database schema represents the collection and association of tables in a database.
 
 **Table** - A series of columns and rows which store data inside of a database. An example of a table is "users" or "customers".
 
