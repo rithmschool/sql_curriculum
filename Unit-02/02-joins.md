@@ -192,15 +192,89 @@ Here are the results:
 |  4 | Moxie      | Garcia    |    |               |          |
 
 So with our `FULL JOIN` we are getting all matching combinations of people and interests, plus interests that do not have any matching people and people that do not have any matching interests.
- 
+
+### Join Diagram
+
+Here is a useful diagram from [C.L. Moffet's article](http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins) that illustrates the common joins which we just covered:
+
+![Ven Diagram of Joins](http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg)
+
 ### Cross Join
+
+A cross join is not the most useful join, but it may come in handy once and a while.  It gives you all possible combinations of rows from the first table and rows from the second table.  Here is the query:
+
+```sql
+SELECT *
+FROM people
+CROSS JOIN interests;
+```
+
+And this is the output:
+
+ id | first_name | last_name | id |   interest    | people_id
+----+------------+-----------+----+---------------+-----------
+  1 | Billy Jean | King      |  1 | sailing       |         2
+  2 | Dawn       | Riley     |  1 | sailing       |         2
+  3 | Grace      | Hopper    |  1 | sailing       |         2
+  4 | Moxie      | Garcia    |  1 | sailing       |         2
+  1 | Billy Jean | King      |  2 | tennis        |         1
+  2 | Dawn       | Riley     |  2 | tennis        |         1
+  3 | Grace      | Hopper    |  2 | tennis        |         1
+  4 | Moxie      | Garcia    |  2 | tennis        |         1
+  1 | Billy Jean | King      |  3 | software      |         3
+  2 | Dawn       | Riley     |  3 | software      |         3
+  3 | Grace      | Hopper    |  3 | software      |         3
+  4 | Moxie      | Garcia    |  3 | software      |         3
+  1 | Billy Jean | King      |  4 | debugging     |         3
+  2 | Dawn       | Riley     |  4 | debugging     |         3
+  3 | Grace      | Hopper    |  4 | debugging     |         3
+  4 | Moxie      | Garcia    |  4 | debugging     |         3
+  1 | Billy Jean | King      |  5 | snow boarding |          
+  2 | Dawn       | Riley     |  5 | snow boarding |          
+  3 | Grace      | Hopper    |  5 | snow boarding |          
+  4 | Moxie      | Garcia    |  5 | snow boarding |          
+  1 | Billy Jean | King      |  6 | ham radio     |          
+  2 | Dawn       | Riley     |  6 | ham radio     |          
+  3 | Grace      | Hopper    |  6 | ham radio     |          
+  4 | Moxie      | Garcia    |  6 | ham radio     |          
+
 
 ### Self Join
 
-### Union
+A self join is actually just doing a normal join.  The big difference is that the two tables that you are joining are the same.  The classic example is an employee table with an id for a boss.  The `boss_id` in the table references another employee in the same table:
 
-### Union All
+__employees__
 
-### Intersect
+ id | first_name | last_name | boss_id |
+----+------------+-----------+----+
+  1 | Billy Jean | King      |  3 |
+  2 | Dawn       | Riley     |  3 |
+  3 | Grace      | Hopper    |  4 |
+  4 | Ada        | Lovelace  |    |
+  5 | Emmy       | Noether   |  4  |
+  6 | Marie      | Curie     |  5  |
 
-### Except
+Here is the sql for the table:
+
+```sql
+CREATE table employees (id SERIAL PRIMARY KEY,
+                        first_name TEXT,
+                        last_name TEXT,
+                        boss_id INTEGER);
+
+INSERT INTO employees (first_name, last_name, boss_id) VALUES ('Billy Jean', 'King', 3),
+                                                  ('Dawn', 'Riley', 3),
+                                                  ('Grace', 'Hopper', 4),
+                                                  ('Ada', 'Lovelace', NULL),
+                                                  ('Emmy', 'Noether', 4),
+                                                  ('Marie', 'Curie', 5);
+```
+* __Find all the employees and their bosses. Also show employees without bosses__:
+
+
+
+```sql
+SELECT e.id, e.first_name, e.last_name, e.boss_id, b.first_name as b_first_name, b.last_name as b_last_name
+FROM employees e
+LEFT JOIN employees b ON e.boss_id=b.id;
+```
