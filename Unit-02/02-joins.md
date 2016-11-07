@@ -211,32 +211,32 @@ CROSS JOIN interests;
 
 And this is the output:
 
- id | first_name | last_name | id |   interest    | people_id
-----+------------+-----------+----+---------------+-----------
-  1 | Billy Jean | King      |  1 | sailing       |         2
-  2 | Dawn       | Riley     |  1 | sailing       |         2
-  3 | Grace      | Hopper    |  1 | sailing       |         2
-  4 | Moxie      | Garcia    |  1 | sailing       |         2
-  1 | Billy Jean | King      |  2 | tennis        |         1
-  2 | Dawn       | Riley     |  2 | tennis        |         1
-  3 | Grace      | Hopper    |  2 | tennis        |         1
-  4 | Moxie      | Garcia    |  2 | tennis        |         1
-  1 | Billy Jean | King      |  3 | software      |         3
-  2 | Dawn       | Riley     |  3 | software      |         3
-  3 | Grace      | Hopper    |  3 | software      |         3
-  4 | Moxie      | Garcia    |  3 | software      |         3
-  1 | Billy Jean | King      |  4 | debugging     |         3
-  2 | Dawn       | Riley     |  4 | debugging     |         3
-  3 | Grace      | Hopper    |  4 | debugging     |         3
-  4 | Moxie      | Garcia    |  4 | debugging     |         3
-  1 | Billy Jean | King      |  5 | snow boarding |          
-  2 | Dawn       | Riley     |  5 | snow boarding |          
-  3 | Grace      | Hopper    |  5 | snow boarding |          
-  4 | Moxie      | Garcia    |  5 | snow boarding |          
-  1 | Billy Jean | King      |  6 | ham radio     |          
-  2 | Dawn       | Riley     |  6 | ham radio     |          
-  3 | Grace      | Hopper    |  6 | ham radio     |          
-  4 | Moxie      | Garcia    |  6 | ham radio     |          
+| id | first_name | last_name | id |   interest    | people_id |
+|----|------------|-----------|----|---------------|-----------|
+|  1 | Billy Jean | King      |  1 | sailing       |         2|
+|  2 | Dawn       | Riley     |  1 | sailing       |         2|
+|  3 | Grace      | Hopper    |  1 | sailing       |         2|
+|  4 | Moxie      | Garcia    |  1 | sailing       |         2|
+|  1 | Billy Jean | King      |  2 | tennis        |         1|
+|  2 | Dawn       | Riley     |  2 | tennis        |         1|
+|  3 | Grace      | Hopper    |  2 | tennis        |         1|
+|  4 | Moxie      | Garcia    |  2 | tennis        |         1|
+|  1 | Billy Jean | King      |  3 | software      |         3|
+|  2 | Dawn       | Riley     |  3 | software      |         3|
+|  3 | Grace      | Hopper    |  3 | software      |         3|
+|  4 | Moxie      | Garcia    |  3 | software      |         3|
+|  1 | Billy Jean | King      |  4 | debugging     |         3|
+|  2 | Dawn       | Riley     |  4 | debugging     |         3|
+|  3 | Grace      | Hopper    |  4 | debugging     |         3|
+|  4 | Moxie      | Garcia    |  4 | debugging     |         3|
+|  1 | Billy Jean | King      |  5 | snow boarding |          |
+|  2 | Dawn       | Riley     |  5 | snow boarding |          |
+|  3 | Grace      | Hopper    |  5 | snow boarding |          |
+|  4 | Moxie      | Garcia    |  5 | snow boarding |          |
+|  1 | Billy Jean | King      |  6 | ham radio     |          |
+|  2 | Dawn       | Riley     |  6 | ham radio     |          |
+|  3 | Grace      | Hopper    |  6 | ham radio     |          |
+|  4 | Moxie      | Garcia    |  6 | ham radio     |          |
 
 
 ### Self Join
