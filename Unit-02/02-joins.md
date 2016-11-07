@@ -245,14 +245,14 @@ A self join is actually just doing a normal join.  The big difference is that th
 
 __employees__
 
- id | first_name | last_name | boss_id |
-----+------------+-----------+----+
-  1 | Billy Jean | King      |  3 |
-  2 | Dawn       | Riley     |  3 |
-  3 | Grace      | Hopper    |  4 |
-  4 | Ada        | Lovelace  |    |
-  5 | Emmy       | Noether   |  4  |
-  6 | Marie      | Curie     |  5  |
+| id | first_name | last_name | boss_id |
+|----|------------|-----------|----|
+|  1 | Billy Jean | King      |  3 |
+|  2 | Dawn       | Riley     |  3 |
+|  3 | Grace      | Hopper    |  4 |
+|  4 | Ada        | Lovelace  |    |
+|  5 | Emmy       | Noether   |  4  |
+|  6 | Marie      | Curie     |  5  |
 
 Here is the sql for the table:
 
