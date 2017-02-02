@@ -37,24 +37,19 @@ Welcome to the SQL curriculum! We will be learning how to use SQL to communicate
 To install postgres, follow these steps:
 
 ```sh
-brew install postgres --no-ossp-uuid
-brew pin postgres
+brew install postgres 
 
-# Initialize db if none exists already
-initdb /usr/local/var/postgres
+createdb `whoami`
 
-# Create launchctl script
+# Start postgres
+postgres -D /usr/local/var/postgres
+
+# open up a new tab (command + t) and run the following commands
+
+# The commands below configure PostgreSQL to start automatically.
 mkdir -p ~/Library/LaunchAgents
-cp /usr/local/Cellar/postgresql/VERSION/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-
-# Edit launchctl script (set to not start automatically and keepalive false)
-subl ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
-# Inject launchctl script
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
-# Start PostgreSQL
-start pg
 ```
 
 You should be able to type in `psql` and see a new shell open up. To quit out of `psql` type in `\q`.
