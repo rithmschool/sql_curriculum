@@ -78,7 +78,7 @@ ALTER TABLE users RENAME COLUMN jobb TO job;
 
 ```sql
 ALTER TABLE users ADD COLUMN favorite_number TEXT; 
-ALTER TABLE users ALTER COLUMN favorite_number SET DATA TYPE INTEGER; 
+ALTER TABLE users ALTER COLUMN favorite_number SET DATA TYPE VARCHAR(100); 
 \d+ users -- we should see our column spelled correctly here
 ```
 
