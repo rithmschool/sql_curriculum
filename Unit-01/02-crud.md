@@ -110,13 +110,10 @@ SELECT id, first_name FROM users WHERE id=1;
 
 ### INSERT
 
-There are two different ways of inserting or adding data to a table - let's take a look at both
+To insert or add data to a table - we use the INSERT command
 
 ```sql
 --start with the INSERT INTO commands and then specify a table(column1, column2, ...) and VALUES for each column.
-INSERT INTO users(first_name, last_name) VALUES ('Elie', 'Schoppik');
-
---if you want to add sequentially to columns you do not need to specify the first portion-- 
 INSERT INTO users(first_name, last_name) VALUES ('Elie', 'Schoppik');
 ```
 
