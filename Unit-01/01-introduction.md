@@ -42,9 +42,9 @@ brew install postgres
 # Start postgres
 postgres -D /usr/local/var/postgres
 
-createdb `whoami`
-
 # open up a new tab (command + t) and run the following commands
+
+createdb `whoami`
 
 # The commands below configure PostgreSQL to start automatically.
 mkdir -p ~/Library/LaunchAgents
