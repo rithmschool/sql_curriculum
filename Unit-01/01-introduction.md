@@ -39,10 +39,10 @@ To install postgres, follow these steps:
 ```sh
 brew install postgres 
 
-createdb `whoami`
-
 # Start postgres
 postgres -D /usr/local/var/postgres
+
+createdb `whoami`
 
 # open up a new tab (command + t) and run the following commands
 
