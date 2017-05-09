@@ -48,7 +48,7 @@ __interests__
 | 3 | software | 3 |
 | 4 | debugging | 3 |
 
-In our sample data, the values in the `people_id` column reference the `id` from the people table.  Take the row form the `people` table with the `id` of 3 as an example.  We can see that id 3, Grace Hopper, is associated with 2 rows in the interests table because the `people_id` matches the id of 3.  The two interests are software and debugging.
+In our sample data, the values in the `people_id` column reference the `id` from the people table.  Take the row from the `people` table with the `id` of 3 as an example.  We can see that id 3, Grace Hopper, is associated with 2 rows in the interests table because the `people_id` matches the id of 3.  The two interests are software and debugging.
 
 But why is a foreign key considered a constraint?  Well the database actually ensures that the data in your foreign key column exists in the table that the foreign key references.  Try inserting into the interests table with data that does not exist in the people table:
 
@@ -68,7 +68,7 @@ ERROR:  insert or update on table "interests" violates
 
 In our foreign key example above, we actually setup a one to many (1:M) association. The way we structured the database implies that one person can have many interests, and that each interest belongs to exactly one person.
 
-One to many associations are extremely common in database and they association usually implies that one row from a table owns or has rows from another table.
+One to many associations are extremely common in database and the association usually implies that one row from a table owns or has rows from another table.
 
 For example:
 
@@ -79,7 +79,7 @@ CREATE TABLE users (id SERIAL PRIMARY KEY,
 
 CREATE TABLE photos (id SERIAL PRIMARY KEY,
                      url TEXT,
-                     user_id INTEGER REFERENCES people);
+                     user_id INTEGER REFERENCES users);
 ```
 
 In the table above, each user in the users table, can have many photos and one photo from the photos table belongs to exactly one user based on the value of `user_id`.
