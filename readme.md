@@ -9,7 +9,8 @@
 
 ### Unit 2 - Intermediate SQL
 
-- [01 Joins](./Unit-02/01-joins.md)
-- [02 Normalization](./Unit-02/02-normalization.md)
-- [03 Data Modeling](./Unit-02/03-data_modeling.md)
-- [04 Odds and Ends](./Unit-02/04-odds_and_ends.md)
+- [01 Associations](./Unit-02/01-associations.md)
+- [02 Joins](./Unit-02/02-joins.md)
+- [03 Normalization](./Unit-02/03-normalization.md)
+- [04 Data Modeling](./Unit-02/04-data_modeling.md)
+- [05 Odds and Ends](./Unit-02/05-odds_and_ends.md)
