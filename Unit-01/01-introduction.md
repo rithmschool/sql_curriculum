@@ -72,7 +72,7 @@ If you would like to create a new database, we can do this in 2 ways:
 If you would like to remove a database, we can do this in 2 ways:
 
 1. In `psql` type `DROP DATABASE name_of_db;` - make sure you are not connected to that database or the command will not work
-2. In the `terminal` type `drop name_of_db`
+2. In the `terminal` type `dropdb name_of_db`
 
 ### SQL Syntax
 
