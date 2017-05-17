@@ -12,7 +12,7 @@ Welcome to the SQL curriculum! We will be learning how to use SQL to communicate
 
 ### Definitions
 
-**Database** - a collection of information that can easily be updated, accessed and managed. Databases are used to capture and analyze data on a more permanent bases.
+**Database** - a collection of information that can easily be updated, accessed and managed. Databases are used to capture and analyze data on a more permanent base.
 
 **Relatonal Database** - a type of database that is structured so that relationships can be established among stored information. 
 
