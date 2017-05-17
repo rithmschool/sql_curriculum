@@ -122,8 +122,8 @@ INSERT INTO users(first_name, last_name) VALUES ('Elie', 'Schoppik');
 To update a row or multiple rows we use the `DELETE UPDATE` command.
 
 ```sql
-UPDATE users SET first_name = 'Elie' -- will update all users
-UPDATE users SET first_name = 'Elie' WHERE id=1 -- will update all users
+UPDATE users SET first_name = 'Elie'; -- will update all users
+UPDATE users SET first_name = 'Elie' WHERE id=1; -- will update all users
 ```
 
 ### DELETE
