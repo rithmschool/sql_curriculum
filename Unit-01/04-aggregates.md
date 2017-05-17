@@ -102,7 +102,7 @@ In SQL, we can use conditional logic to query our data and display custom result
 SELECT product, price, 
     CASE WHEN price < 50 THEN 'inexpensive'
          WHEN price > 50 AND price < 100 THEN 'reasonable'
-         WHEN price < 50 AND price < 400 THEN 'expensive'
+         WHEN price > 100 AND price < 400 THEN 'expensive'
          ELSE 'very expensive' END AS how_expensive
     FROM sales;
 ```
