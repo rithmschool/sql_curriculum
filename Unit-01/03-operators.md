@@ -72,7 +72,7 @@ SELECT * FROM players WHERE jersey_number IN (0,1);
 We can do the exact inverse of `IN` using `NOT IN`
 
 ```sql
-SELECT * FROM players WHERE jersey_number IN (0,1);
+SELECT * FROM players WHERE jersey_number NOT IN (0,1);
 /*
  id |  name   |   sport    |  team  | jersey_number | is_rookie 
 ----+---------+------------+--------+---------------+-----------
