@@ -169,7 +169,7 @@ WHERE interests.id IS NULL;
 In this query, we first get all of the people and all of their interests (including people with no interests), then we limit that result to only the rows without an interest id.  In other words, the results where people do not have a matching interest.  Your output should be:
 
 | id | first_name | last_name | id | interest | people_id |
-|----+------------+-----------+----+----------+-----------|
+|----|------------|-----------|----|----------|-----------|
 |  4 | Moxie      | Garcia    |    |          |           |
 
 * __Find all people and all interests (even if there is no corresponding match)__:
@@ -182,7 +182,7 @@ FULL JOIN interests ON people.id=interests.people_id;
 Here are the results:
 
 | id | first_name | last_name | id |   interest    | people_id |
-|----+------------+-----------+----+---------------+-----------|
+|----|------------|-----------|----|---------------|-----------|
 |  2 | Dawn       | Riley     |  1 | sailing       |         2|
 | 1 | Billy Jean | King      |  2 | tennis        |         1|
 |  3 | Grace      | Hopper    |  3 | software      |         3|
