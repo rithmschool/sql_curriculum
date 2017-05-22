@@ -170,7 +170,7 @@ In this query, we first get all of the people and all of their interests (includ
 
 | id | first_name | last_name | id | interest | people_id |
 |----+------------+-----------+----+----------+-----------|
-|  4 | Moxie      | Garcia    |    |          |          |
+|  4 | Moxie      | Garcia    |    |          |           |
 
 * __Find all people and all interests (even if there is no corresponding match)__:
 
