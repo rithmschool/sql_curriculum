@@ -119,7 +119,7 @@ INSERT INTO users(first_name, last_name) VALUES ('Elie', 'Schoppik');
 
 ### UPDATE
 
-To update a row or multiple rows we use the `DELETE UPDATE` command.
+To update a row or multiple rows we use the `UPDATE` command.
 
 ```sql
 UPDATE users SET first_name = 'Elie'; -- will update all users
