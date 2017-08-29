@@ -217,7 +217,6 @@ And this is the output:
 |  3 | Grace      | Hopper    |  6 | ham radio     |          |
 |  4 | Moxie      | Garcia    |  6 | ham radio     |          |
 
-
 ### Self Join
 
 A self join is actually just doing a normal join.  The big difference is that the two tables that you are joining are the same.  The classic example is an employee table with an id for a boss.  The `boss_id` in the table references another employee in the same table:
@@ -250,10 +249,61 @@ INSERT INTO employees (first_name, last_name, boss_id) VALUES ('Billy Jean', 'Ki
 ```
 * __Find all the employees and their bosses. Also show employees without bosses__:
 
-
-
 ```sql
 SELECT e.id, e.first_name, e.last_name, e.boss_id, b.first_name as b_first_name, b.last_name as b_last_name
 FROM employees e
 LEFT JOIN employees b ON e.boss_id=b.id;
 ```
+
+### Joins with a Many to Many
+
+In the previous example, we look at a 1 to many - let's examine how joins work with a many to many.
+
+```sql
+CREATE TABLE students (id SERIAL PRIMARY KEY, name TEXT);
+
+CREATE TABLE courses (id SERIAL PRIMARY KEY, name TEXT);
+
+CREATE TABLE enrollments (id SERIAL PRIMARY KEY,
+                           student_id INTEGER REFERENCES students,
+                           course_id INTEGER REFERENCES courses);
+
+INSERT INTO students (name) VALUES ('Elie'), ('Matt'), ('Tim');
+INSERT INTO courses (name) VALUES ('Music'), ('Art History'), ('Programming'), ('English'), ('Spanish'), ('Gym'), ('Math');
+
+INSERT INTO enrollments (student_id, course_id) VALUES (1,1), (1,2), (2,1), 
+                                                       (3,1), (3,4), (3,5),
+                                                       (2,6), (3,6), (3,5);
+```
+
+If we were to run `SELECT * FROM students s JOIN enrollments e ON
+ s.id = e.student_id JOIN courses c on e.course_id=c.id;` - we would see:
+
+| id | name | id | student_id | course_id | id |    name       |
+|---|------|----|------------|-----------|----|----------------|
+| 1 | Elie |  1 |          1 |         1 |  1 | Music          |
+| 1 | Elie |  2 |          1 |         2 |  2 | Art History    |
+| 2 | Matt |  3 |          2 |         1 |  1 | Music          |
+| 3 | Tim  |  4 |          3 |         1 |  1 | Music          |
+| 3 | Tim  |  5 |          3 |         4 |  4 | English        |
+| 3 | Tim  |  6 |          3 |         5 |  5 | Spanish        |
+| 2 | Matt |  7 |          2 |         6 |  6 | Gym            |
+| 3 | Tim  |  8 |          3 |         6 |  6 | Gym            |
+| 3 | Tim  |  9 |          3 |         5 |  5 | Spanish        |
+
+If we were to run `SELECT * FROM students s  JOIN enrollments e ON s.id = e.student_id LEFT JOIN courses c on e.course_id=c.id;` - we could see all data with a left join (or a full outer)
+
+| id | name | id | student_id | course_id | id |    name       |
+|---|------|----|------------|-----------|----|----------------|
+  1 | Elie |  1 |          1 |         1 |  1 | Music
+  1 | Elie |  2 |          1 |         2 |  2 | Art History
+  2 | Matt |  3 |          2 |         1 |  1 | Music
+  3 | Tim  |  4 |          3 |         1 |  1 | Music
+  3 | Tim  |  5 |          3 |         4 |  4 | English
+  3 | Tim  |  6 |          3 |         5 |  5 | Spanish
+  2 | Matt |  7 |          2 |         6 |  6 | Gym
+  3 | Tim  |  8 |          3 |         6 |  6 | Gym
+  3 | Tim  |  9 |          3 |         5 |  5 | Spanish
+    |      |    |            |           |  7 | Math
+    |      |    |            |           |  3 | Programming
+

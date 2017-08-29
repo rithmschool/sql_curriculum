@@ -123,7 +123,6 @@ CREATE TABLE courses (id SERIAL PRIMARY KEY,
 CREATE TABLE enrollments (id SERIAL PRIMARY KEY,
                       	   student_id INTEGER REFERENCES students,
                       	   course_id INTEGER REFERENCES courses);
-
 ```
 
 In students and courses example, one student can be associated with a course by a single row in the `enrollments` table. If that student is in another course, there will be another row in the `enrollments` table that associates the same student id to another course id.
