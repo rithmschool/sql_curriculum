@@ -307,3 +307,4 @@ If we were to run `SELECT * FROM students s  JOIN enrollments e ON s.id = e.stud
     |      |    |            |           |  7 | Math
     |      |    |            |           |  3 | Programming
 
+
