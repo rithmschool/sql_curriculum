@@ -71,8 +71,6 @@ INSERT INTO interests (interest, people_id) VALUES ('sailing', 2),
                                                    ('snow boarding',null),
                                                    ('ham radio',null);
 ```
-```
-
 
 Now that we have some data, let's do our first join:
 
