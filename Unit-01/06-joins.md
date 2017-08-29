@@ -295,16 +295,16 @@ If we were to run `SELECT * FROM students s  JOIN enrollments e ON s.id = e.stud
 
 | id | name | id | student_id | course_id | id |    name       |
 |---|------|----|------------|-----------|----|----------------|
-  1 | Elie |  1 |          1 |         1 |  1 | Music
-  1 | Elie |  2 |          1 |         2 |  2 | Art History
-  2 | Matt |  3 |          2 |         1 |  1 | Music
-  3 | Tim  |  4 |          3 |         1 |  1 | Music
-  3 | Tim  |  5 |          3 |         4 |  4 | English
-  3 | Tim  |  6 |          3 |         5 |  5 | Spanish
-  2 | Matt |  7 |          2 |         6 |  6 | Gym
-  3 | Tim  |  8 |          3 |         6 |  6 | Gym
-  3 | Tim  |  9 |          3 |         5 |  5 | Spanish
-    |      |    |            |           |  7 | Math
-    |      |    |            |           |  3 | Programming
+|  1 | Elie |  1 |          1 |         1 |  1 | Music         |
+|  1 | Elie |  2 |          1 |         2 |  2 | Art History   |
+|  2 | Matt |  3 |          2 |         1 |  1 | Music         |
+|  3 | Tim  |  4 |          3 |         1 |  1 | Music         |
+|  3 | Tim  |  5 |          3 |         4 |  4 | English       |
+|  3 | Tim  |  6 |          3 |         5 |  5 | Spanish       |
+|  2 | Matt |  7 |          2 |         6 |  6 | Gym           |
+|  3 | Tim  |  8 |          3 |         6 |  6 | Gym           |
+|  3 | Tim  |  9 |          3 |         5 |  5 | Spanish       |
+|    |      |    |            |           |  7 | Math          |
+|    |      |    |            |           |  3 | Programming   |
 
 
