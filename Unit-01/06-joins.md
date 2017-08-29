@@ -61,12 +61,16 @@ CREATE TABLE interests (id SERIAL PRIMARY KEY,
 
 INSERT INTO people (first_name, last_name) VALUES ('Billy Jean', 'King'),
                                                   ('Dawn', 'Riley'),
-                                                  ('Grace', 'Hopper');
+                                                  ('Grace', 'Hopper'),
+                                                  ('Moxie', 'Garcia');
 
 INSERT INTO interests (interest, people_id) VALUES ('sailing', 2),
                                                    ('tennis', 1),
                                                    ('software', 3),
-                                                   ('debugging', 3);
+                                                   ('debugging', 3),
+                                                   ('snow boarding',null),
+                                                   ('ham radio',null);
+```
 ```
 
 
@@ -90,29 +94,6 @@ Even thought the `INNER` keyword is not necessary, it helps us remember what kin
 ### Left, Right, Full (Outer) Join
 
 So far we have looked a data set where all data from the first table has at least 1 match in the second table, and vice versa.  Sometimes that is not the case though.  Consider the following data set (if you are following along, you should drop the previous tables and create a new ones):
-
-
-```sql
-CREATE TABLE people (id SERIAL PRIMARY KEY,
-                    first_name TEXT,
-                    last_name TEXT);
-
-CREATE TABLE interests (id SERIAL PRIMARY KEY,
-                       interest TEXT,
-                       people_id INTEGER REFERENCES people);
-
-INSERT INTO people (first_name, last_name) VALUES ('Billy Jean', 'King'),
-                                                  ('Dawn', 'Riley'),
-                                                  ('Grace', 'Hopper'),
-                                                  ('Moxie', 'Garcia');
-
-INSERT INTO interests (interest, people_id) VALUES ('sailing', 2),
-                                                   ('tennis', 1),
-                                                   ('software', 3),
-                                                   ('debugging', 3),
-                                                   ('snow boarding',null),
-                                                   ('ham radio',null);
-```
 
 In this data set, Moxie Garcia does not have any interests.  Also, none of the people are interested in snow boarding or ham radios.
 
